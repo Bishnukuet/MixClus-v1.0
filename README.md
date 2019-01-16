@@ -1,3 +1,52 @@
-# MixClus
-MixClus is a tool for fast clustering of CDR3 peptide sequences.
+# Mixclus 2019.01
 
+**Command-line manual**
+
+## About
+Mixclus is an ultra-fast and sensitive algorithm for clustering BCR-IG sequences. Based on heuristic yet high-performance methods, Mixclus can cluster BCR-IG sequences before VDJ assignment in a reasonable time.
+
+# Requirements and installation
+The Levenshtein Python C extension package, you can install it by using pip :
+
+``` bash
+ pip install python-Levenshtein
+```
+
+
+# Input and parameters
+
+The main input file of Mixclus is a *set of reads*, given as a `.fasta`.
+
+
+## Main algorithm parameters
+``` diff
+  -dataset                 Name of input fasta file.
+  -output                  Name of output file.
+  -method                  Clustering method (default: CDR3, based on CDR3 sequence).
+  -id                      Similarity threshold
+  -tolerance               Tolerance level,define a merging neighborhood (default : 0)
+  -mid                     Merge threshold
+  -splitsize               Size of a smaller block of sequences. It helps to speed up the clustering by addressing a chunk of sequence to each available core (default: 300)
+```
+
+
+# Output
+
+## Main output files
+
+The main output of Mixclus is a three column text file, seperated by space, in the following format:
+``` diff
+  Cluster_number  sequence_id sequence 
+  1 S11_1 GTTTTTCTGTTCACAGGGGTCCTGTCCCCGGTGCAGCTACAGCAGTGGGGCGCAGGACTGTTGAAGCCTTCGGAGACCCTGTCCCTCACCTTCGCTGTCTATGGTGGGTCCTTCAGTGGTTACTACTGGAGCTGGTTCCGCCAGCCCCCAGGGAAGGGGCTGGAGTGGATTGGGGAAATCAATCATAGTGGAAGCACCAACTACAACCCGTCCCTCAAGAGTCGAGTCACCATATCAGTAGACACGTCCAAGACC
+```
+
+## Usage
+
+``` bash
+$ python mixclust.py -dataset simulated_seq.fa -output simulated_seq_out_mid90_t1  -method CDR3 -id 90.0 -tolerance 1 -mid 90.0 -splitsize 300
+   # clustering based on junction region (which contains CDR3)
+   # Tolerance level equal one so Mixclus tries to merge clusters with length L- 1, L, L+1.
+   # Similarity threshold for creating initial clusters is 90%.
+   # The result of this clustering is in the simulated_seq_out_mid90_t1_id_90.txt file ('clusters')
+   # sequences are divided into groups of 300, and each group is given to one core.
+   ```
