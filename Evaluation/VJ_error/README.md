@@ -11,7 +11,7 @@ clusters.
 
 The main input files of VJerror.py are: 
 
-1- Predicted_clusters_File which contains the output of clustring tool. This file should have the folowing format :
+1- VJ_file which contains the the IGHV and IGHJ identity of each sequence. This file should have the folowing format :
 
 ``` diff
 Seq ID IGHV IGHJ
