@@ -24,8 +24,6 @@ The main input file of Mixclus is a *set of reads*, given as a `.fasta`.
   -output                  Name of output file.
   -method                  Clustering method (default: CDR3, based on CDR3 sequence).
   -id                      Similarity threshold
-  -tolerance               Tolerance level,define a merging neighborhood (default : 0)
-  -mid                     Merge threshold
   -splitsize               Size of a smaller block of sequences. It helps to speed up the clustering by addressing a chunk of sequence to each available core (default: 300)
 ```
 
@@ -43,7 +41,7 @@ The main output of Mixclus is a three column text file, seperated by space, in t
 ## Usage
 
 ``` bash
-$ python mixclust.py -dataset simulated_seq.fa -output simulated_seq_out_mid90_t1  -method CDR3 -id 90.0 -tolerance 1 -mid 90.0 -splitsize 300
+$ python mixclust.py -dataset simulated_seq.fa -output simulated_seq_out_mid90_t1  -method CDR3 -id 90.0 -splitsize 300
    # clustering based on junction region (which contains CDR3)
    # Tolerance level equal one so Mixclus tries to merge clusters with length L- 1, L, L+1.
    # Similarity threshold for creating initial clusters is 90%.
