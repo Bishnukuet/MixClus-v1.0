@@ -38,13 +38,19 @@ The main output of Mixclus is a three column text file, seperated by space, in t
   1 S11_1 GTTTTTCTGTTCACAGGGGTCCTGTCCCCGGTGCAGCTACAGCAGTGGGGCGCAGGACTGTTGAAGCCTTCGGAGACCCTGTCCCTCACCTTCGCTGTCTATGGTGGGTCCTTCAGTGGTTACTACTGGAGCTGGTTCCGCCAGCCCCCAGGGAAGGGGCTGGAGTGGATTGGGGAAATCAATCATAGTGGAAGCACCAACTACAACCCGTCCCTCAAGAGTCGAGTCACCATATCAGTAGACACGTCCAAGACC
 ```
 
+## Example
+
+``` diff
+& python example.py
+```
+
+
 ## Usage
 
 ``` bash
-$ python mixclust.py -dataset simulated_seq.fa -output simulated_seq_out_mid90_t1  -method CDR3 -id 90.0 -splitsize 300
+$ python mixclust.py -dataset simulated_seq.fa -output simulated_seq_out  -method CDR3 -id 90.0 -splitsize 300
    # clustering based on junction region (which contains CDR3)
-   # Tolerance level equal one so Mixclus tries to merge clusters with length L- 1, L, L+1.
    # Similarity threshold for creating initial clusters is 90%.
-   # The result of this clustering is in the simulated_seq_out_mid90_t1_id_90.txt file ('clusters')
+   # The result of this clustering is in the simulated_seq_out_id_90.txt file ('clusters')
    # sequences are divided into groups of 300, and each group is given to one core.
    ```
