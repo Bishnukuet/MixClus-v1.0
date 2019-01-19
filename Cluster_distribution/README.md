@@ -1,9 +1,10 @@
+
 # Cluster distribution
 
 **Command-line manual**
 
 ## About
-Visualising the sequence distrbution into clones inffered by Mixclus.
+Visualizing the sequence distribution into clones inferred by Mixclus.
 
 
 # Input 
@@ -11,7 +12,7 @@ Visualising the sequence distrbution into clones inffered by Mixclus.
 The main input file of Cluster_distribution.py are : 
 
 
-Predicted_clusters_File which contains the output of Mixclus tool. This file has the folowing format :
+Predicted_clusters_File which contains the output of Mixclus tool. This file has the following format :
 
 ``` diff
 Cluster_number  seq_ID nucleotide_seq
@@ -26,11 +27,11 @@ Fasta_file which contains the sequences.
 
 The outputs of Cluster_distribution.py are :
 
-1- A png file containing different plots for visualising the distribution of sequences into the clones.
+1- A png file containing different plots for visualizing the distribution of sequences into the clones.
 
 2- A text file with the following format :
 ``` diff
-Cluster_number  size of the clusetr
+Cluster_number  size of the cluster
 
 Example :
 
