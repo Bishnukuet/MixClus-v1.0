@@ -42,7 +42,7 @@ Example :
 
 ## Main output files
 
-The  output of VJerror.py are the VJ error value:
+The  output of VJerror.py is the VJ error value:
 
 ``` diff
 VJerror : 0.002
